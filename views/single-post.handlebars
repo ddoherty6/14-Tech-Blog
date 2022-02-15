@@ -1,18 +1,18 @@
 <article class="post">
+  <p></p>
  {{> post-info post}}
 {{#if loggedIn}}
 <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
+  <div class="form-group">
+    <textarea class="form-control" name="comment-body"></textarea>
   </div>
-
-  <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+  <div class="form-group">
+    <button class="btn" type="submit">add comment</button>
+    <button class="btn" type="button" class="upvote-btn">upvote</button>
   </div>
 </form>
 {{/if}}
   {{> comments post.comments}}
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-{{/if}}
+{{/if}} 
