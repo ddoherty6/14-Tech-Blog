@@ -1,4 +1,4 @@
-async function deleteFormHandler(event) {
+async function editFormHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
@@ -6,14 +6,16 @@ async function deleteFormHandler(event) {
     ];
 
     const postTitle = document.querySelector('input[name="post-title"]').value.trim();
-    console.log(postTitle);
+    const postText = document.querySelector('textarea[name="post-text"]').value.trim();
+    
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            title: postTitle
+            title: postTitle,
+            post_text: postText
         })
     });
 
@@ -26,4 +28,4 @@ async function deleteFormHandler(event) {
   
   }
   
-  document.querySelector('.edit-post-form').addEventListener('click', deleteFormHandler);
+  document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);

@@ -10,7 +10,7 @@ router.get('/', withAuth, (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
+            'post_text',
             'title',
             'created_at'
         ],
@@ -44,7 +44,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at'
     ],
@@ -69,6 +69,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
     }
 
     const post = dbPostData.get({ plain: true });
+    console.log(post.title);
+    console.log(post.post_text);
     
     res.render('edit-post', {
       post,
